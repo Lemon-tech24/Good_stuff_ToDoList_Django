@@ -1,0 +1,52 @@
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    #content{
+        margin: 100px auto;
+        text-align: center;
+        align: center;
+        background-color: lightgreen;
+        width: 500px;
+        border-radius: 30px;
+    }
+    p{
+        line-height: 60px;
+        font-size: 2em;
+    }
+    #confirm_button{
+        background: darkgreen;
+        color: white;
+        padding:10px;
+        border-radius: 30px;
+        line-height: 10px;
+    }
+    #cancel_button{
+        text-style: none;
+        line-height: 100px;
+
+    }
+    #cancel_button a{
+        text-decoration:none;
+        color: white;
+        background-color: darkred;
+        padding:6px;
+        border-radius: 20px;
+    }
+
+</style>
+<div id = "content">
+<p>Do you want to delete {{item}} ?</p>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="submit" id="confirm_button" name="confirm">
+</form>
+   <div id = "cancel_button">
+     <a href=" {% url 'list' %} " >Cancel</a>
+   </div>
+</div>
